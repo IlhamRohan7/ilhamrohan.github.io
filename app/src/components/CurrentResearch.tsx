@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { currentResearch as r } from '../data/research'
 import Reveal, { SectionHead } from './Reveal'
 
@@ -19,13 +20,26 @@ function Diagram() {
           <stop offset="1" stopColor="#000" stopOpacity="0.015" />
         </radialGradient>
         <radialGradient id="ag" cx="65%" cy="35%">
-          <stop offset="0" stopColor="#000" stopOpacity="0.1" />
-          <stop offset="1" stopColor="#000" stopOpacity="0.02" />
+          <stop offset="0" stopColor="#6f9ab6" stopOpacity="0.3" />
+          <stop offset="1" stopColor="#a8c5d8" stopOpacity="0.06" />
         </radialGradient>
       </defs>
 
-      <circle cx="240" cy="180" r="130" fill="url(#hg)" stroke="rgba(0,0,0,0.14)" />
-      <circle cx="400" cy="180" r="130" fill="url(#ag)" stroke="rgba(0,0,0,0.14)" />
+      {/* the two circles draw themselves when the card scrolls into view */}
+      <motion.circle
+        cx="240" cy="180" r="130" fill="url(#hg)" stroke="rgba(0,0,0,0.2)"
+        initial={{ pathLength: 0, fillOpacity: 0 }}
+        whileInView={{ pathLength: 1, fillOpacity: 1 }}
+        viewport={{ once: true, margin: '0px 0px -80px 0px' }}
+        transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
+      />
+      <motion.circle
+        cx="400" cy="180" r="130" fill="url(#ag)" stroke="rgba(111,154,182,0.7)"
+        initial={{ pathLength: 0, fillOpacity: 0 }}
+        whileInView={{ pathLength: 1, fillOpacity: 1 }}
+        viewport={{ once: true, margin: '0px 0px -80px 0px' }}
+        transition={{ duration: 1.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+      />
 
       {/* human side: organic flowing curves */}
       <g fill="none" stroke="rgba(0,0,0,0.28)" strokeWidth="1.2">
@@ -46,7 +60,7 @@ function Diagram() {
 
       {/* shared core */}
       <ellipse cx="320" cy="180" rx="38" ry="104" fill="rgba(255,255,255,0.7)" stroke="rgba(0,0,0,0.18)" />
-      <circle cx="320" cy="180" r="8" fill="#1d1d1f" className="pulse-dot" />
+      <circle cx="320" cy="180" r="8" fill="var(--mist-deep)" className="pulse-dot" />
 
       <g fontSize="17" fontWeight="600" fill="#1d1d1f" textAnchor="middle" fontFamily="Inter, system-ui, sans-serif">
         <text x="190" y="62">Human intelligence</text>
@@ -75,8 +89,8 @@ export default function CurrentResearch() {
               <div className="p-8 md:p-12">
                 <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-3.5 py-1.5 text-sm font-medium">
                   <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#1d1d1f] opacity-40 motion-reduce:animate-none" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[#1d1d1f]" />
+                    <span className="dot-mist absolute inline-flex h-full w-full animate-ping rounded-full opacity-60 motion-reduce:animate-none" />
+                    <span className="dot-mist relative inline-flex h-2 w-2 rounded-full" />
                   </span>
                   {r.status}
                 </span>

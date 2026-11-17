@@ -17,7 +17,7 @@ export default function Education() {
             <div className="relative grid gap-8 p-8 md:grid-cols-[auto_1fr] md:gap-14 md:p-14">
               <div className="flex md:flex-col md:items-start md:gap-1">
                 <div className="flex flex-col items-center gap-2 md:items-start">
-                  <span className="h-3 w-3 rounded-full bg-[#1d1d1f] ring-8 ring-black/5" />
+                  <span className="dot-mist h-3 w-3 rounded-full ring-8 ring-[rgba(168,197,216,0.3)]" />
                   <span className="hidden h-24 w-px bg-gradient-to-b from-black/30 to-transparent md:block" />
                 </div>
               </div>
@@ -28,7 +28,7 @@ export default function Education() {
                 <p className="text-[color:var(--ink-3)]">{e.location}</p>
                 {e.currentStage && (
                   <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-3.5 py-1.5 text-sm font-medium">
-                    <span className="h-2 w-2 rounded-full bg-[#1d1d1f]" aria-hidden="true" />
+                    <span className="dot-mist h-2 w-2 rounded-full" aria-hidden="true" />
                     Currently in {e.currentStage}
                   </p>
                 )}

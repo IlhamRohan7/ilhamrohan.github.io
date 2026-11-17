@@ -51,7 +51,8 @@ export default function Nav() {
                 {active === n.id && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute inset-0 -z-10 rounded-full bg-black/[0.06]"
+                    className="absolute inset-0 -z-10 rounded-full"
+                    style={{ background: 'var(--mist-soft)' }}
                     transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                   />
                 )}

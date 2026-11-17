@@ -37,9 +37,9 @@ export default function ResearchInterests() {
                       <span className="mt-2 block text-[color:var(--ink-2)]">{p.summary}</span>
                     </span>
                     <motion.span
-                      animate={{ rotate: open ? 45 : 0 }}
+                      animate={{ rotate: open ? 45 : 0, backgroundColor: open ? 'rgba(168,197,216,0.45)' : 'rgba(255,255,255,0.7)' }}
                       transition={{ duration: 0.4, ease }}
-                      className="mt-1 grid h-9 w-9 shrink-0 place-items-center rounded-full border border-black/10 bg-white/70"
+                      className="mt-1 grid h-9 w-9 shrink-0 place-items-center rounded-full border border-black/10"
                       aria-hidden="true"
                     >
                       <Plus size={18} />
@@ -99,7 +99,8 @@ export default function ResearchInterests() {
           <h3 className="eyebrow mb-5">Applied research contexts</h3>
           <ul className="flex flex-wrap gap-3">
             {appliedContexts.map((c) => (
-              <li key={c} className="glass px-5 py-3 text-[0.95rem] font-medium" style={{ borderRadius: 999 }}>
+              <li key={c} className="glass flex items-center gap-2.5 px-5 py-3 text-[0.95rem] font-medium" style={{ borderRadius: 999 }}>
+                <span className="dot-mist h-1.5 w-1.5 rounded-full" aria-hidden="true" />
                 {c}
               </li>
             ))}

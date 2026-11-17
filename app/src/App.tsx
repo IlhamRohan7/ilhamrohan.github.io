@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import Nav from './components/Nav'
+import ScrollProgress from './components/ScrollProgress'
 import Hero from './components/Hero'
 import About from './components/About'
 import ResearchInterests from './components/ResearchInterests'
@@ -11,6 +13,19 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 export default function App() {
+  // Feed the pointer position to hovered cards so their mist-blue glow follows the cursor.
+  useEffect(() => {
+    const onMove = (e: PointerEvent) => {
+      const card = (e.target as Element | null)?.closest?.('.glass-lift') as HTMLElement | null
+      if (!card) return
+      const r = card.getBoundingClientRect()
+      card.style.setProperty('--mx', `${e.clientX - r.left}px`)
+      card.style.setProperty('--my', `${e.clientY - r.top}px`)
+    }
+    window.addEventListener('pointermove', onMove, { passive: true })
+    return () => window.removeEventListener('pointermove', onMove)
+  }, [])
+
   return (
     <>
       <a
@@ -19,6 +34,7 @@ export default function App() {
       >
         Skip to content
       </a>
+      <ScrollProgress />
       <Nav />
       <main id="main">
         <Hero />
