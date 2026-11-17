@@ -8,6 +8,7 @@ import CurrentResearch from './components/CurrentResearch'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Education from './components/Education'
+import Leadership from './components/Leadership'
 import Beyond from './components/Beyond'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -44,6 +45,7 @@ export default function App() {
         <Projects />
         <Skills />
         <Education />
+        <Leadership />
         <Beyond />
         <Contact />
       </main>

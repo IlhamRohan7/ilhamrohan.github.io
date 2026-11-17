@@ -8,7 +8,7 @@ const cardClass = 'glass glass-lift group flex h-full flex-col p-6 no-underline 
 
 export default function Beyond() {
   return (
-    <section id="beyond" className="section">
+    <section id="beyond" className="section" style={{ background: 'var(--bg-soft)' }}>
       <div className="container-x">
         <SectionHead eyebrow="Beyond Engineering" title="Outside the lab." />
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">

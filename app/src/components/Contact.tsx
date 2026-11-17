@@ -5,7 +5,7 @@ import Reveal, { SectionHead } from './Reveal'
 export default function Contact() {
   const phoneHref = profile.phone ? `tel:${profile.phone.replace(/[^\d+]/g, '')}` : ''
   return (
-    <section id="contact" className="section" style={{ background: 'var(--bg-soft)' }}>
+    <section id="contact" className="section">
       <div className="container-x">
         <SectionHead
           eyebrow="Contact"
